@@ -21,6 +21,7 @@ Port = 8000 #Port to host server on
 maxConnections = 999
 IP = socket.gethostname() #IP address of local machine
 
+
 listensocket.bind(('',Port))
 
 #Starts server
