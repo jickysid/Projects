@@ -7,20 +7,7 @@ import numpy as np
 def get_mask(cap,filename):
     #cv2.imshow(cap)
     hsv = cv2.cvtColor(cap, cv2.COLOR_BGR2HSV)
-    print filename
-    #bus and train
-    array5 = np.array([90,255,128])
-    mask5 = cv2.inRange(hsv, array5, array5)
-    array6 = np.array([40,255,192])
-    mask6 = cv2.inRange(hsv, array6, array6)
-    mask = cv2.bitwise_or(mask5, mask6)
-    res5 = cv2.bitwise_and(cap,cap, mask = mask)
-    res5 = cv2.cvtColor(res5, cv2.COLOR_BGR2GRAY)
-    ret, res5 = cv2.threshold(res5,5,255,cv2.THRESH_BINARY)
-    xyz = filename[:-4] + "5" + ".png"
-    cv2.imwrite('C:/Users/user/Desktop/ZN/ISI/VOC2012/Segmentation_MaskB(2)/' + xyz,res5)
-
-'''    #person
+    #person
     array1 = np.array([0,85,192]) #extract these values using isi_mask code for each class
     mask1 = cv2.inRange(hsv, array1, array1)
     res1 = cv2.bitwise_and(cap,cap, mask = mask1)
@@ -63,7 +50,7 @@ def get_mask(cap,filename):
     ret, res5 = cv2.threshold(res5,5,255,cv2.THRESH_BINARY)
     xyz = filename[:-4] + "5" + ".png"
     cv2.imwrite('C:/Users/user/Desktop/ZN/ISI/VOC2012/Segmentation_MaskB(2)/' + xyz,res5)
-    #train
+    #cat
     array6 = np.array([40,255,192])
     mask6 = cv2.inRange(hsv, array6, array6)
     res6 = cv2.bitwise_and(cap,cap, mask = mask6) 
@@ -71,7 +58,7 @@ def get_mask(cap,filename):
     ret, res6 = cv2.threshold(res6,35,255,cv2.THRESH_BINARY)
     xyz = filename[:-4] + "6" + ".png"
     #cv2_imshow(res2)
-    cv2.imwrite('C:/Users/user/Desktop/ZN/ISI/VOC2012/Segmentation_MaskB/' + xyz,res6)'''
+    cv2.imwrite('C:/Users/user/Desktop/ZN/ISI/VOC2012/Segmentation_MaskB/' + xyz,res6)
 
 #    return res1,res2,res3,res4,res5,res6
 
